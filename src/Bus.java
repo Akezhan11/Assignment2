@@ -1,4 +1,23 @@
-package PACKAGE_NAME;
+public class Bus extends Vehicle {
+    private int passengerCapacity;
+    public Bus(String model,int year, int basePrice, int passengerCapacity) {
+        super(model,year,basePrice);
+        setPassengerCapacity(passengerCapacity);
+    }
 
-public class Bus {
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+    public void setPassengerCapacity(int passengerCapacity) {
+        if (passengerCapacity <= 0) {
+            throw new IllegalArgumentException("Passenger Capacity must be greater than zero.");
+        }
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    @Override
+    public double calculateInsuranceFee() {
+        int age = getAge(java.time.Year.now().getValue());
+        return passengerCapacity * getBasePrice() * age / 200;
+    }
 }
