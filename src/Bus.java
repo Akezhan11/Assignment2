@@ -1,6 +1,6 @@
 public class Bus extends Vehicle implements Servicable {
     private int passengerCapacity;
-    public Bus(String model,int year, int basePrice, int passengerCapacity) {
+    public Bus(String model,int year, double basePrice, int passengerCapacity) {
         super(model,year,basePrice);
         setPassengerCapacity(passengerCapacity);
     }
